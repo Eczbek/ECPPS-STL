@@ -1,10 +1,15 @@
 #include <type_traits>
 
+#define _ECPPS_CONSTEXPR constexpr
+#define _ECPPS_NOEXCEPT noexcept
+
 namespace std
 {
      template <typename _T>
-     remove_reference_t<_T>&& move(_T&& __t)
+     _ECPPS_CONSTEXPR remove_reference_t<_T>&& move(_T&& __t) _ECPPS_NOEXCEPT
      {
           return static_cast<remove_reference_t<_T>&&>(__t);
      }
 }
+
+#undef _ECPPS_CONSTEXPR
