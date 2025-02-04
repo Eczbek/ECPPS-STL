@@ -1,0 +1,8 @@
+namespace std
+{
+     template <typename _T>
+     remove_reference_t<_T>&& move(_T&& __t)
+     {
+          return static_cast<remove_reference_t<_T>&&>(__t);
+     }
+}
